@@ -105,7 +105,7 @@ module GitWiki
         Dir.chdir(self.class.repository.working_dir) {
           self.class.repository.add(@blob.name)
         }
-        self.class.repository.commit_index(commit_message)
+        self.class.repository.commit_index(commit_message) or raise "Commit failed"
       end
 
       def file_name
